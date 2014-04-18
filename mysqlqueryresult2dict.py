@@ -20,8 +20,7 @@ def parse_text(text):
     }
   state = PARSE_STATUS['header']
   lines = text.split('\n')
-  index = 0;
-  for line in lines:
+  for index, line in enumerate(lines):
     if tableFrameRegex.match(line):
       if state == PARSE_STATUS['table_header']:
         result['fields'] = process_table_header(lines[index:])
@@ -31,10 +30,8 @@ def parse_text(text):
         tmp_records = []
         for record in records:
           tmp = {}
-          i = 0
-          for key in result['fields']:
+          for i, key in enumerate(result['fields']):
             tmp[key] = record[i]
-            i = i + 1
           tmp_records.append(tmp)
         result['records'] = tmp_records
         state = PARSE_STATUS['table_footer']
@@ -47,34 +44,24 @@ def parse_text(text):
       if state == PARSE_STATUS['header']:
         result['header'] = process_header(lines[index:])
         state = PARSE_STATUS['table_header']
-    index = index + 1
 
   return result
 
 def process_header(lines):
   results = []
-  i = 0
-  for line in lines:
+  for i, line in enumerate(lines):
     if i != 0 and tableFrameRegex.match(line):
       return results
-
-    i = i + 1
 
     line = line.rstrip()
     results.append(line)
 
 def process_table_header(lines):
-  i = 0
-  for line in lines:
+  for i, line in enumerate(lines):
     if i != 0 and tableFrameRegex.match(line):
       return
 
-    should_continue = False;
     if i == 0 and tableFrameRegex.match(line):
-      should_continue = True
-    i = i + 1
-
-    if should_continue:
       continue
 
     line = line.rstrip()
@@ -84,17 +71,11 @@ def process_table_header(lines):
 
 def process_table_body(lines):
   results = []
-  i = 0;
-  for line in lines:
+  for i, line in enumerate(lines):
     if i != 0 and tableFrameRegex.match(line):
       return results
 
-    should_continue = False;
     if i == 0 and tableFrameRegex.match(line):
-      should_continue = True
-    i = i + 1
-
-    if should_continue:
       continue
 
     line = line.rstrip()
@@ -106,17 +87,11 @@ def process_table_body(lines):
 
 def process_table_footer(lines):
   results = []
-  i = 0
-  for line in lines:
+  for i, line in enumerate(lines):
     if i != 0 and tableFrameRegex.match(line):
       return results
 
-    should_continue = False;
     if i == 0 and tableFrameRegex.match(line):
-      should_continue = True
-    i = i + 1
-
-    if should_continue:
       continue
 
     line = line.rstrip()
