@@ -1,4 +1,4 @@
-import mysqlquery2dict
+import mysqlqueryresult2dict
 
 DATA = '''mysql> SELECT * FROM foo;
 +----+-------+
@@ -11,5 +11,5 @@ DATA = '''mysql> SELECT * FROM foo;
 3 rows in set (0.01 sec)
 '''
 
-dict = mysqlquery2dict.parse_text(DATA)
+dict = mysqlqueryresult2dict.parse_text(DATA)
 print dict

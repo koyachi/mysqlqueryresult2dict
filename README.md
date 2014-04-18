@@ -1,4 +1,4 @@
-# mysqlquery2dict
+# mysqlqueryresult2dict
 
 ## Description
 
@@ -7,7 +7,7 @@ python port of https://github.com/koyachi/ruby-hash-from_mysql_query_result .
 
 ## Example
 ```python
-import mysqlquery2dict
+import mysqlqueryresult2dict
 
 DATA = '''mysql> SELECT * FROM foo;
 +----+-------+
@@ -20,7 +20,7 @@ DATA = '''mysql> SELECT * FROM foo;
 3 rows in set (0.01 sec)
 '''
 
-dict = mysqlquery2dict.parse_text(DATA)
+dict = mysqlqueryresult2dict.parse_text(DATA)
 print dict
 ```
 
