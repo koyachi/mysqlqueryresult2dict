@@ -1,3 +1,10 @@
+import os
+import sys
+
+LIB_DIR = os.path.realpath('./mysqlqueryresult2dict')
+if not LIB_DIR in sys.path:
+  sys.path.insert(0, LIB_DIR)
+
 import mysqlqueryresult2dict
 import unittest
 
