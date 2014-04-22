@@ -105,7 +105,7 @@ class MysqlQueryResult2Dict:
     return
 
 def parse_text(text):
-  return MysqlQueryResult().parse_text(text)
+  return MysqlQueryResult2Dict().parse_text(text)
 
 if __name__ == '__main__':
   TEST_DATA = '''mysql> SELECT * FROM foo;
