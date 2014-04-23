@@ -2,6 +2,7 @@
 INFO = dict(
   name = "mysqlqueryresult2dict",
   description = "Create dict from MySQL query result text.",
+  long_description = open("README.rst").read(),
   author = "koyachi",
   author_email = "rtk2106@gmail.com",
   license = "MIT License",
