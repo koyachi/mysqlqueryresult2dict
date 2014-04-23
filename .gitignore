@@ -1,2 +1,4 @@
 *~
 *.pyc
+dist/
+mysqlqueryresult2dict.egg-info/
