@@ -13,6 +13,7 @@ Example
 =======
 
 .. code:: python
+
   import mysqlqueryresult2dict
   
   DATA = '''mysql> SELECT * FROM foo;
@@ -24,7 +25,7 @@ Example
   |  3 |     C |
   +----+-------+
   3 rows in set (0.01 sec)
-  
+  '''
   
   dict = mysqlqueryresult2dict.parse_text(DATA)
   print dict
